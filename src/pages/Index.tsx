@@ -44,6 +44,25 @@ const slides = [
   },
   {
     id: 5,
+    type: "process",
+    title: "Производство: виды и процессы",
+    sections: [
+      {
+        heading: "Наиболее распространённые виды оружия",
+        text: "В Тюменской области наибольшее распространение получило производство стрелкового оружия — охотничьи карабины и ружья, пистолеты и пистолеты-пулемёты для силовых структур, а также высокоточные снайперские комплексы. Кроме того, предприятия региона специализируются на выпуске боеприпасов различных калибров и компонентов для артиллерийских систем.",
+      },
+      {
+        heading: "Сроки производства",
+        text: "Цикл изготовления единицы стрелкового оружия составляет от 2 до 6 недель в зависимости от сложности модели. Производство высокоточных систем и сложных комплексов может занимать от 3 до 12 месяцев с учётом испытаний и приёмки.",
+      },
+      {
+        heading: "Как это происходит",
+        text: "Процесс включает несколько этапов: проектирование и разработка конструкторской документации → заготовительное производство (литьё, ковка, штамповка) → механическая обработка деталей на станках с ЧПУ → сборка и подгонка компонентов → испытания на полигоне → военная приёмка и упаковка. Контроль качества осуществляется на каждом этапе.",
+      },
+    ],
+  },
+  {
+    id: 6,
     type: "final",
     title: "Выводы",
     points: [
@@ -135,6 +154,24 @@ export default function Index() {
               <p className="text-white/80 text-base font-light leading-relaxed max-w-md">
                 {slide.description}
               </p>
+            </div>
+          </div>
+        )}
+
+        {slide.type === "process" && (
+          <div className="h-full flex flex-col justify-center px-14 py-10 overflow-hidden">
+            <div className="w-8 h-[2px] bg-gray-800 mb-5" />
+            <h2 className="text-2xl font-light text-gray-900 mb-6">{slide.title}</h2>
+            <div className="space-y-5">
+              {slide.sections?.map((section, i) => (
+                <div key={i} className="flex gap-5">
+                  <span className="text-xs font-mono text-gray-300 mt-1 shrink-0">0{i + 1}</span>
+                  <div>
+                    <div className="text-sm font-medium text-gray-700 mb-1">{section.heading}</div>
+                    <p className="text-sm font-light text-gray-500 leading-relaxed">{section.text}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         )}
